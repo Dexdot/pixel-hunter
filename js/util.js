@@ -6,26 +6,32 @@ const KeyCode = {
 };
 
 const KeyPress = {
-  isEscPress: (e) => {
+  isEsc: (e) => {
     return e.keyCode === KeyCode.esc;
   },
-  isEnterPress: (e) => {
+  isEnter: (e) => {
     return e.keyCode === KeyCode.enter;
   },
-  isLeftArrowPress: (e) => {
+  isLeftArrow: (e) => {
     return e.keyCode === KeyCode.leftArrow;
   },
-  isRightArrowPress: (e) => {
+  isRightArrow: (e) => {
     return e.keyCode === KeyCode.rightArrow;
   },
-  isAltLeftArrowPress: (e) => {
+  isAltLeftArrow: (e) => {
     return e.keyCode === KeyCode.leftArrow && e.altKey;
   },
-  isAltRightArrowPress: (e) => {
+  isAltRightArrow: (e) => {
     return e.keyCode === KeyCode.rightArrow && e.altKey;
   },
 };
 
 export default {
-  KeyPress
+  KeyPress,
+  getElementByTemplate: (str) => {
+    const template = document.createElement(`template`);
+    template.innerHTML = str;
+    const clone = template.content.cloneNode(true);
+    return clone;
+  }
 };
