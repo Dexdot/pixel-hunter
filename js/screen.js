@@ -1,7 +1,7 @@
 export default {
-  show: (newScreen) => {
+  show: (screenNode) => {
     const mainScreen = document.querySelector(`main`);
     mainScreen.innerHTML = ``;
-    mainScreen.appendChild(newScreen);
+    mainScreen.appendChild(screenNode);
   }
 };

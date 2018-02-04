@@ -1,10 +1,10 @@
-import util from './util';
-import screen from './screen';
-import getRules from './rules';
+import getElementByTemplate from "../util";
+import footer from "../blocks/footer";
+import screen from "../screen";
+import getRules from "./rules";
 
 export default function getGreeting() {
-
-  const elem = util.getElementByTemplate(`
+  const elem = getElementByTemplate(`
   <div class="greeting central--blur">
     <div class="greeting__logo"><img src="img/logo_big.png" width="201" height="89" alt="Pixel Hunter"></div>
     <h1 class="greeting__asterisk">*</h1>
@@ -18,22 +18,10 @@ export default function getGreeting() {
     </div>
     <div class="greeting__continue"><span><img src="img/arrow_right.svg" width="64" height="64" alt="Next"></span></div>
   </div>
-  <footer class="footer">
-    <a href="https://htmlacademy.ru" class="social-link social-link--academy">HTML Academy</a>
-    <span class="footer__made-in">Сделано в <a href="https://htmlacademy.ru" class="footer__link">HTML Academy</a> &copy; 2016</span>
-    <div class="footer__social-links">
-      <a href="https://twitter.com/htmlacademy_ru" class="social-link  social-link--tw">Твиттер</a>
-      <a href="https://www.instagram.com/htmlacademy/" class="social-link  social-link--ins">Инстаграм</a>
-      <a href="https://www.facebook.com/htmlacademy" class="social-link  social-link--fb">Фэйсбук</a>
-      <a href="https://vk.com/htmlacademy" class="social-link  social-link--vk">Вконтакте</a>
-    </div>
-  </footer>`);
+  ${footer}`);
   elem.querySelector(`.greeting__continue`).addEventListener(`click`, () => {
     screen.show(getRules());
   });
 
   return elem;
-
 }
-
-
